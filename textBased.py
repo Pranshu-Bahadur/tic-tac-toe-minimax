@@ -1,5 +1,6 @@
 from model import Model
 from minimaxAlphaBetaAgent import MinimaxAlphaBetaAgent
+from minimaxAgent import MinimaxAgent
 import copy
 
 class TextView():
@@ -48,19 +49,20 @@ def main(view, agent):
 			move = input("Player {}' turn:\n".format(temp))
 		else:
 			print("Player O's turn:")
-			prev = copy.deepcopy(view.currState)
-			choose = agent.choose(prev, False)
-			print(choose)
-			move = choose[0]
+			depth = len(agent.get_all_next_moves(view.currState))
+			print(depth)
+			#move = agent.minimax(view.currState, depth, False)[0]
+			move = agent.choose(view.currState, False)[0]
+			print(move)
 		view.currState.move(temp, int(move))
 		print("=======================================================================================")
 		print(view.draw())
 		print(view.currState.empty_tiles())
 		player = -player
-	if view.currState.score is 3:
+	if view.currState.score() == 10:
 		print("Player X wins!")
 
-	elif view.currState.score is -3:
+	elif view.currState.score() == -10:
 		print("Player O wins!")
 
 	else:
@@ -69,5 +71,24 @@ def main(view, agent):
 game = Model()
 text = TextView(game)
 agent = MinimaxAlphaBetaAgent()
+#agent = MinimaxAgent()
 main(text, agent)
+
+"""
+text = TextView(game)
+text.currState.move('X', 9)
+text.currState.move("O", 1)
+
+text.currState.move('X', 3)
+text.currState.move("O", 8)
+
+move = agent.choose(text.currState, True)
+
+print(move)
+
+text.currState.move('X', move[0])
+
+print(text.draw())
+"""
+
 

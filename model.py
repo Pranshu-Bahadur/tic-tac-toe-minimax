@@ -21,7 +21,6 @@ class Model():
 
 		# The two playes of the game.
 		self.players = ['X', 'O']
-		self.score = 0
 
 	def move(self, player, position):
 		"""
@@ -49,10 +48,32 @@ class Model():
 							self.depth -= 1
 							return
 						else:
-							raise Exception("Player player not found.".format(player))
+							raise Exception("Player {} not found.".format(player))
 					else:
-						raise Exception("Invalid move at position.".format(position))
-		raise Exception("Out of bounds position.".format(position))
+						raise Exception("Invalid move at {}.".format(position))
+		raise Exception("Out of bounds {}.".format(position))
+
+	def undo_move(self, player, position):
+		"""
+		Places designated value on given position for a given player.
+		By mutating the "value" field in self.board.
+		Also, mutates remaining number of empty tiles on the board.
+		1 for 'X' and '-1' for 'O'
+		params: player: 'X' or 'O'
+				position: 1...9
+		errors: 
+				- Invalid move.
+				- Invalid player.
+				- Position out of bounds.
+		"""
+		for row in self.board:
+			for tile in row:
+				if tile["position"] is position:
+					if tile["value"] is not 0:
+						tile["value"] = 0
+					else:
+						raise Exception("No move to undo at {}.".format(position))
+
 
 
 	def empty_tiles(self):
@@ -62,7 +83,7 @@ class Model():
 		return [[tile["position"] for tile in row if tile["value"] is 0] for row in self.board]
 
 
-	def gameOver(self):
+	def score(self):
 		"""
 		Mutates self.winner in the case a winning possibility is satisfied or if all tiles on the board are filled.
 		Returns a boolen for if the game is over.
@@ -80,13 +101,14 @@ class Model():
 		for possibility in winPossibilities:
 			for row in possibility:
 				if sum(row) is 3:
-					self.score = 3
-					return True
+					return 10
 				elif sum(row) is -3:
-					self.score = -3
-					return True
+					return -10
 
-		if self.depth is 0:
+		return 0
+
+	def gameOver(self):
+		if self.score() > 0 or self.depth is 0 or self.score() < 0:
 			return True
-			
-		return False
+		else:
+			return False
