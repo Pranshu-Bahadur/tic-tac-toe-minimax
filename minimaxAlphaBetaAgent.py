@@ -18,30 +18,22 @@ class MinimaxAlphaBetaAgent():
 			bestValue = -1, inf
 
 		for s in self.get_all_next_moves(state):
+			player = 'X' if isMax else 'O'
+			state.move(player, s)
+			value = s, self.minimax_alpha_beta(state, depth - 1, alpha, beta, not isMax)[1]
+			state.undo_move(player, s)
 			if isMax:
-				state.move('X', s)
-				value = s, max(bestValue[1], self.minimax_alpha_beta(state, depth - 1, alpha, beta, False)[1])
-				state.undo_move('X', s)
-
-				if value[1] > bestValue[1]:
-					bestValue = value
-				
-				alpha = max(alpha, value[1])
+				bestValue = max(bestValue, value, key= lambda i: i[1])
+				alpha = max(alpha, bestValue[1])
 				if alpha >= beta:
-					return s, alpha
-				
+					break
+					#return s, alpha
 			else:
-				state.move('O', s)
-				value = s, min(bestValue[1], self.minimax_alpha_beta(state, depth - 1, alpha, beta, True)[1])
-				state.undo_move('O', s)
-
-				if value[1] < bestValue[1]:
-					bestValue = value
-				
+				bestValue = min(bestValue, value, key= lambda i: i[1])
 				beta = min(beta, value[1])
 				if alpha >= beta:
-					return s, beta
-				
+					break
+					#return s, beta				
 		return bestValue
 
 	def choose(self, state, player):
