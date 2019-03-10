@@ -27,11 +27,12 @@ class Controller:
 			for event in view.pygame.event.get():
 				if event.type == view.pygame.QUIT:
 					self.quit = True
-
+					pygame.quit()
+					quit()
+					break
 			self.view.pygame.display.update()
 			self.view.clock.tick(60)
-		pygame.quit()
-		quit()
+
 
 model = Model()
 view = GuiView()
