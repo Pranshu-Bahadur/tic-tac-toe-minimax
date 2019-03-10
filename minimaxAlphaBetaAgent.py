@@ -33,7 +33,7 @@ class MinimaxAlphaBetaAgent():
 				beta = min(beta, value[1])
 				if alpha >= beta:
 					break
-					#return s, beta				
+					#return s, beta
 		return bestValue
 
 	def choose(self, state, player):
