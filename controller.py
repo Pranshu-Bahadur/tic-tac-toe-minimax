@@ -24,8 +24,8 @@ class Controller:
 		Main game loop of the tic-tac-toe game
 		"""
 		while not self.model.gameOver() or self.quit:
-			for event in view.pygame.event.get():
-				if event.type == view.pygame.QUIT:
+			for event in self.view.pygame.event.get():
+				if event.type is self.view.pygame.QUIT:
 					self.quit = True
 					pygame.quit()
 					quit()
