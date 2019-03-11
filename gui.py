@@ -18,7 +18,6 @@ class GuiView():
 		self.display = pygame.display.set_mode((1920, 1080), pygame.FULLSCREEN)
 		self.pygame.display.set_caption('Tic Tac Toe')
 		self.display.fill(pygame.Color(255,235,215))
-		self.draw_grid()
 		self.clock = pygame.time.Clock()
 		self.positions= {
 		#Row 1:
@@ -51,6 +50,61 @@ class GuiView():
 						center = [int(sum([position[0][0]*0.25, position[1][0]*0.25, position[2][0]*0.25, position[3][0]*0.25])),
 						int(sum([position[0][1]*0.25, position[1][1]*0.25, position[2][1]*0.25, position[3][1]*0.25]))] 
 						pygame.draw.circle(self.display, (0, 0, 0), center, 75, 5)
+
+	def draw_start_menu(self):
+		self.display.fill((255, 255, 215))
+		mouse = self.pygame.mouse.get_pos()
+		font = self.pygame.font.SysFont('Comic Sans MS', 48)
+		introText = font.render("Tic-Tac-Toe:", True, (0, 0, 0))
+		self.display.blit(introText, (740, 440))
+		if 790 + 100 >= mouse[0] >= 790 and 540 + 50 >= mouse[1] >= 540:
+			font = self.pygame.font.SysFont('Comic Sans MS', 40)
+			introText = font.render("v/s Player", True, (0, 0, 0))
+			self.display.blit(introText, (790, 540))
+			font = self.pygame.font.SysFont('Comic Sans MS', 30)
+			introText = font.render("v/s Computer", True, (0, 0, 0))
+			self.display.blit(introText, (790, 640))
+		elif 790 + 100 >= mouse[0] >= 790 and 640 + 50 >= mouse[1] >= 640:
+			font = self.pygame.font.SysFont('Comic Sans MS', 30)
+			introText = font.render("v/s Player", True, (0, 0, 0))
+			self.display.blit(introText, (790, 540))
+			font = self.pygame.font.SysFont('Comic Sans MS', 40)
+			introText = font.render("v/s Computer", True, (0, 0, 0))
+			self.display.blit(introText, (790, 640))
+		else:
+			font = self.pygame.font.SysFont('Comic Sans MS', 30)
+			introText = font.render("v/s Player", True, (0, 0, 0))
+			self.display.blit(introText, (790, 540))
+			introText = font.render("v/s Computer", True, (0, 0, 0))
+			self.display.blit(introText, (790, 640))
+
+
+	def draw_win_state(self, player):
+		self.display.fill((255, 255, 215))
+		mouse = self.pygame.mouse.get_pos()
+		font = self.pygame.font.SysFont('Comic Sans MS', 48)
+		introText = font.render("Winner is {} !!!".format(player), True, (0, 0, 0))
+		self.display.blit(introText, (740, 440))
+		if 790 + 100 >= mouse[0] >= 790 and 540 + 50 >= mouse[1] >= 540:
+			font = self.pygame.font.SysFont('Comic Sans MS', 40)
+			introText = font.render("Menu", True, (0, 0, 0))
+			self.display.blit(introText, (790, 540))
+			font = self.pygame.font.SysFont('Comic Sans MS', 30)
+			introText = font.render("Exit", True, (0, 0, 0))
+			self.display.blit(introText, (790, 640))
+		elif 790 + 100 >= mouse[0] >= 790 and 640 + 50 >= mouse[1] >= 640:
+			font = self.pygame.font.SysFont('Comic Sans MS', 30)
+			introText = font.render("Menu", True, (0, 0, 0))
+			self.display.blit(introText, (790, 540))
+			font = self.pygame.font.SysFont('Comic Sans MS', 40)
+			introText = font.render("Exit", True, (0, 0, 0))
+			self.display.blit(introText, (790, 640))
+		else:
+			font = self.pygame.font.SysFont('Comic Sans MS', 30)
+			introText = font.render("Menu", True, (0, 0, 0))
+			self.display.blit(introText, (790, 540))
+			introText = font.render("Exit", True, (0, 0, 0))
+			self.display.blit(introText, (790, 640))
 
 
 	def draw_grid(self):
