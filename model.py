@@ -71,6 +71,7 @@ class Model():
 				if tile["position"] is position:
 					if tile["value"] is not 0:
 						tile["value"] = 0
+						self.depth += 1
 					else:
 						raise Exception("No move to undo at {}.".format(position))
 
@@ -108,7 +109,7 @@ class Model():
 		return 0
 
 	def gameOver(self):
-		if self.score() > 0 or self.depth is 0 or self.score() < 0:
+		if self.score() > 0 or self.depth <= 0 or self.score() < 0:
 			return True
 		else:
 			return False

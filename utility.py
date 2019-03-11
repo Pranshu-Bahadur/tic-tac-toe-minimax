@@ -1,27 +1,17 @@
-#print(max([1 , 2], [3, 4], key=lambda k: k[1])) # Just testing out theory on max function...
+positions= {
+        #Row 1:
+        1: [[640 ,240], [840, 240], [640, 440], [840, 440]],
+        2: [[840 ,240], [1040, 240], [840, 440], [1040, 440]],
+        3: [[1040 ,240], [1240, 240], [1040, 440], [1240, 440]],
+        #Row 2:
+        4: [[640 ,440], [840, 440], [640, 640], [840, 640]],
+        5: [[840 ,440], [1040, 440], [840, 640], [1040, 640]],
+        6: [[1040 ,440], [1240, 440], [1040, 640], [1240, 640]],
+        #Row 3:
+        7: [[640 ,640], [840, 640], [640, 840], [840, 840]],
+        8: [[840 ,640], [1040, 640], [840, 840], [1040, 840]],
+        9: [[1040 ,640], [1240, 640], [1040, 840], [1240, 840]],
+        }
 
-import sys, pygame
-pygame.init()
-
-size = width, height = 320, 240
-speed = [2, 2]
-black = 0, 0, 0
-
-screen = pygame.display.set_mode(size)
-
-ball = pygame.image.load("intro_ball.gif")
-ballrect = ball.get_rect()
-
-while 1:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT: sys.exit()
-
-    ballrect = ballrect.move(speed)
-    if ballrect.left < 0 or ballrect.right > width:
-        speed[0] = -speed[0]
-    if ballrect.top < 0 or ballrect.bottom > height:
-        speed[1] = -speed[1]
-
-    screen.fill(black)
-    screen.blit(ball, ballrect)
-    pygame.display.flip()
+for position in range(len(positions)):
+    print(position)
