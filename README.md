@@ -12,17 +12,21 @@ This project is built on base Python 3.7.2 along with the pygame library for the
 Installing pygame,
 Open Console:
 
-'''
+
 
 		pip install pygame
 		
-'''
+
 ## How to execute code:
 
+You will first have to download the repository as a .zip file and then extract the contents into a folder. Then you can open the folder as in a compiler such as PyCharm or SublimeText3.
+
 ### GUI
+
 To run the gui version of the project through a python complier, you will need to run the Tic-Tac-Toe.py file in Resources->code
 
 ### Text based
+
 To run the text version the project through a python complier, you will need to run the textBased.py file in Resources->code
 
 
@@ -63,8 +67,6 @@ Every board state has a value associated with it. In a given state if the maximi
 
 ## My application of Minimax-Alpha-Beta-Pruning:
 
-'''
-Minimax-Alpha-Beta method
 
 
 	def minimax_alpha_beta(self, state, depth, alpha, beta, isMax):
@@ -93,9 +95,9 @@ Minimax-Alpha-Beta method
 						break
 						#return s, beta
 			return bestValue
-'''
 
-    Seen in Resources->code->minimaxAlphaBetaAgent.py
+
+   Seen in Resources->code->minimaxAlphaBetaAgent.py
 
 
 ## How to run the Game?
