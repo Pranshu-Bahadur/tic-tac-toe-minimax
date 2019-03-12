@@ -16,6 +16,7 @@ The purpose of this project from me was to learn and apply the Minimax algorithm
 5. Scroll down to the "Tic-Tac-Toe.exe" file and doiable click it to run
 ![alt text](https://github.com/Pranshu-Bahadur/Tic-Tac-Toe/blob/master/Resources/images/TTTReadme3.jpg)
 6. Voila! You're in the game!
+
 ![alt text](https://github.com/Pranshu-Bahadur/Tic-Tac-Toe/blob/master/Resources/images/TTTReadme4.jpg)
 
 
