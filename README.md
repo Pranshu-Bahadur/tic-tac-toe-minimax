@@ -99,7 +99,7 @@ https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-ar
 Pesudocode for Minimax and Alpha-Beta Pruning from MIT:
 https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-fall-2010/tutorials/MIT6_034F10_tutor02.pdf
 
-CS4100 Lecture Notes, Northeastern University, Prof.Robert Platt, Adversial Search:
+CS4100 Lecture Notes, Northeastern University, Prof.Robert Platt, Adversarial Search:
 http://www.ccs.neu.edu/home/rplatt/cs4100_spring2018/slides/adversarial_search.pdf
 
 GeeksforGeeks Minimax Explanation:
@@ -112,5 +112,5 @@ Another Tic-Tac-Toe, Minimax Repo:
 https://github.com/Cledersonbc/tic-tac-toe-minimax
 
 
-#### Explanation Images are taken from CS4100 Lecture Slides on Adversial Search by Robert Platt.
+#### Explanation Images are taken from CS4100 Lecture Slides on Adversarial Search by Robert Platt.
 
