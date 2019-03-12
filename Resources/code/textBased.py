@@ -1,6 +1,5 @@
 from model import Model
 from minimaxAlphaBetaAgent import MinimaxAlphaBetaAgent
-from minimaxAgent import MinimaxAgent
 import copy
 
 class TextView():
