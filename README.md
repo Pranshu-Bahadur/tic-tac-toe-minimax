@@ -13,7 +13,9 @@ Installing pygame,
 Open Console:
 
 '''
-	pip install pygame
+
+		pip install pygame
+		
 '''
 ## How to execute code:
 
