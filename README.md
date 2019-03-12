@@ -42,32 +42,35 @@ Every board state has a value associated with it. In a given state if the maximi
 ## My application of Minimax-Alpha-Beta-Pruning:
 
 '''
-def minimax_alpha_beta(self, state, depth, alpha, beta, isMax):
-		if state.gameOver() or depth is 0:
-			return -1, state.score() - depth
-		if isMax:
-			bestValue = -1, -inf
-		else:
-			bestValue = -1, inf
+Minimax-Alpha-Beta method
 
-		for s in self.get_all_next_moves(state):
-			player = 'X' if isMax else 'O'
-			state.move(player, s)
-			value = s, self.minimax_alpha_beta(state, depth - 1, alpha, beta, not isMax)[1]
-			state.undo_move(player, s)
+
+	def minimax_alpha_beta(self, state, depth, alpha, beta, isMax):
+			if state.gameOver() or depth is 0:
+				return -1, state.score() - depth
 			if isMax:
-				bestValue = max(bestValue, value, key= lambda i: i[1])
-				alpha = max(alpha, bestValue[1])
-				if alpha >= beta:
-					break
-					#return s, alpha
+				bestValue = -1, -inf
 			else:
-				bestValue = min(bestValue, value, key= lambda i: i[1])
-				beta = min(beta, value[1])
-				if alpha >= beta:
-					break
-					#return s, beta
-		return bestValue
+				bestValue = -1, inf
+
+			for s in self.get_all_next_moves(state):
+				player = 'X' if isMax else 'O'
+				state.move(player, s)
+				value = s, self.minimax_alpha_beta(state, depth - 1, alpha, beta, not isMax)[1]
+				state.undo_move(player, s)
+				if isMax:
+					bestValue = max(bestValue, value, key= lambda i: i[1])
+					alpha = max(alpha, bestValue[1])
+					if alpha >= beta:
+						break
+						#return s, alpha
+				else:
+					bestValue = min(bestValue, value, key= lambda i: i[1])
+					beta = min(beta, value[1])
+					if alpha >= beta:
+						break
+						#return s, beta
+			return bestValue
 '''
 
     Seen in Resources->code->minimaxAlphaBetaAgent.py
