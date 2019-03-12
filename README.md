@@ -5,6 +5,26 @@
 A basic version of the popular game "Tic Tac Toe" also known as Knots & Crosses.
 The purpose of this project from me was to learn and apply the Minimax algorithm with Alpha Beta Pruning.
 
+## Dependencies
+
+This project is built on base Python 3.7.2 along with the pygame library for the gui.
+
+Installing pygame,
+Open Console:
+
+'''
+	pip install pygame
+'''
+## How to execute code:
+
+### GUI
+To run the gui version of the project through a python complier, you will need to run the Tic-Tac-Toe.py file in Resources->code
+
+### Text based
+To run the text version the project through a python complier, you will need to run the textBased.py file in Resources->code
+
+
+
 ## Minimax and Alpha Beta Pruning:
 
 "Minimax is a kind of backtracking algorithm that is used in decision making and game theory to find the optimal move for a player, assuming that your opponent also plays optimally. It is widely used in two player turn-based games such as Tic-Tac-Toe
