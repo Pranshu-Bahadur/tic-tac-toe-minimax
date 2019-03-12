@@ -25,10 +25,17 @@ You will first have to download the repository as a .zip file and then extract t
 
 To run the gui version of the project through a python complier, you will need to run the Tic-Tac-Toe.py file in Resources->code
 
+Example of GUI Gameplay:
+
+![alt text](https://github.com/Pranshu-Bahadur/Tic-Tac-Toe/blob/master/Resources/images/gameplay.jpg)
+
 ### Text based
 
 To run the text version the project through a python complier, you will need to run the textBased.py file in Resources->code
 
+Example of Text based version gameplay:
+
+![alt text](https://github.com/Pranshu-Bahadur/Tic-Tac-Toe/blob/master/Resources/images/textGamePlay.jpg)
 
 
 ## Minimax and Alpha Beta Pruning:
