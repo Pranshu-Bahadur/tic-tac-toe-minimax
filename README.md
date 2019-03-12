@@ -13,7 +13,7 @@ In Minimax the two players are called maximizer and minimizer. The maximizer tri
 
 Every board state has a value associated with it. In a given state if the maximizer has upper hand then, the score of the board will tend to be some positive value. If the minimizer has the upper hand in that board state then it will tend to be some negative value. The values of the board are calculated by some heuristics which are unique for every type of game."
 
-                                                                                        (Explanation from Geeks for Geeks, see resources)
+                                                                               (Explanation from Geeks for Geeks, see resources)
 
 ### Pseudocode for Minimax:
 
@@ -38,6 +38,40 @@ Every board state has a value associated with it. In a given state if the maximi
 ### Minimax Tic Tac Toe Game Tree Example:
 
 ![alt text](https://github.com/Pranshu-Bahadur/Tic-Tac-Toe/blob/master/Resources/images/gameTreeMinimax.jpg)
+
+## My application of Minimax-Alpha-Beta-Pruning:
+
+'''
+def minimax_alpha_beta(self, state, depth, alpha, beta, isMax):
+		if state.gameOver() or depth is 0:
+			return -1, state.score() - depth
+		if isMax:
+			bestValue = -1, -inf
+		else:
+			bestValue = -1, inf
+
+		for s in self.get_all_next_moves(state):
+			player = 'X' if isMax else 'O'
+			state.move(player, s)
+			value = s, self.minimax_alpha_beta(state, depth - 1, alpha, beta, not isMax)[1]
+			state.undo_move(player, s)
+			if isMax:
+				bestValue = max(bestValue, value, key= lambda i: i[1])
+				alpha = max(alpha, bestValue[1])
+				if alpha >= beta:
+					break
+					#return s, alpha
+			else:
+				bestValue = min(bestValue, value, key= lambda i: i[1])
+				beta = min(beta, value[1])
+				if alpha >= beta:
+					break
+					#return s, beta
+		return bestValue
+'''
+
+    Seen in Resources->code->minimaxAlphaBetaAgent.py
+
 
 ## How to run the Game?
 
